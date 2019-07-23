@@ -20,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+        public void createOrder(View v)
+        {
+            Intent i = new Intent(MainActivity.this, orderView.class);
+            startActivity(i);
+        }
+
 
 
 }
