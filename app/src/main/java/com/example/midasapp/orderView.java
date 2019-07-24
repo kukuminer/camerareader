@@ -1,7 +1,9 @@
 package com.example.midasapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -31,5 +33,11 @@ public class orderView extends AppCompatActivity {
 
 
 
+    }
+
+    public void gotoScan(View v)
+    {
+        Intent i = new Intent(orderView.this, scanView.class);
+        startActivity(i);
     }
 }

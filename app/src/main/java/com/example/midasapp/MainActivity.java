@@ -20,10 +20,20 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
 
-        public void createOrder(View v)
+        public void gotoCreateOrder(View v)
         {
             Intent i = new Intent(MainActivity.this, orderView.class);
             startActivity(i);
+        }
+
+        public void gotoViewOrders(View v)
+        {
+
+        }
+
+        public void gotoData(View v)
+        {
+
         }
 
 
