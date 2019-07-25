@@ -40,4 +40,10 @@ public class orderView extends AppCompatActivity {
         Intent i = new Intent(orderView.this, scanView.class);
         startActivity(i);
     }
+
+    public void gotoScanView(View v)
+    {
+        Intent i = new Intent(orderView.this, scanView.class);
+        startActivity(i);
+    }
 }
