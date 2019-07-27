@@ -256,7 +256,8 @@ public class scanView extends AppCompatActivity {
         try
         {
             cameraCaptureSession.capture(captureRequestBuilder.build(), null, backgroundHandler);
-        } catch (CameraAccessException e) {
+        } catch (CameraAccessException e)
+        {
             e.printStackTrace();
         }
     }
@@ -266,14 +267,12 @@ public class scanView extends AppCompatActivity {
 
     public void process(View v)
     {
-        //lock();
+        lock();
 
-
-
+        Bitmap b = textureView.getBitmap();
 /*
         ImageView i = (ImageView) findViewById(R.id.textureView);
-        Bitmap b = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.v6);
-        i.setImageBitmap(b);
+        Bitmap b = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.v6);*/
 
         BarcodeDetector detector = new BarcodeDetector.Builder(getApplicationContext()).setBarcodeFormats(Barcode.CODE_39).build();
         //Make sure detector is operational
@@ -294,12 +293,12 @@ public class scanView extends AppCompatActivity {
         }
         else if(barcodes.size() > 1)
         {
-            valueText.setText("Multiple barcodes found!");
+            valueText.setText(barcodes.size() + " barcodes found!");
         }
         else
         {
             Barcode code = barcodes.valueAt(0);
             valueText.setText(code.rawValue);
-        }*/
+        }
     }
 }
