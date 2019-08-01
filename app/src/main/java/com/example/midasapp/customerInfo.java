@@ -43,14 +43,14 @@ public class customerInfo extends AppCompatActivity
             {
                 if(path.mkdirs())
                 {
-                    Toast.makeText(this, "made path: " + file.getPath(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "made path: " + file.getPath(), Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e)
             {
                 Log.d(TAG + "OCC5", e.getMessage());
             }
         }
-        Toast.makeText(this, "Abs path: " + file.getAbsolutePath() + "\npath: " + file.getPath(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Abs path: " + file.getAbsolutePath() + "\npath: " + file.getPath(), Toast.LENGTH_LONG).show();
 
         //The 4 required fields
         name = findViewById(R.id.editName);

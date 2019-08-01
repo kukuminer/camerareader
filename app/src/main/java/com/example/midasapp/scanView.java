@@ -2,6 +2,7 @@ package com.example.midasapp;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
@@ -25,6 +26,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.android.gms.vision.Frame;
@@ -294,6 +296,31 @@ public class scanView extends AppCompatActivity {
         {
             Barcode code = barcodes.valueAt(0);
             valueText.setText(code.rawValue);
+            if(checkCode(code.rawValue))
+            {
+                Toast.makeText(this, "Code matches!", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(scanView.this, orderView.class);
+                i.putExtra("code", code.rawValue);
+                startActivity(i);
+            }
+            else
+            {
+                Toast.makeText(this, "Code not in database!", Toast.LENGTH_SHORT).show();
+            }
         }
+    }
+
+    public boolean checkCode(String code)
+    {
+        Intent i = getIntent();
+        String[] codeList = i.getStringArrayExtra("codes");
+        for(int a = 0; a < codeList.length; a++)
+        {
+            if(code.compareToIgnoreCase(codeList[a]) == 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
