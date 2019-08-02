@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         public void gotoCreateOrder(View v)
         {
             Intent i = new Intent(MainActivity.this, orderView.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(i);
         }
 

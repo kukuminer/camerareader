@@ -1,6 +1,7 @@
 package com.example.midasapp;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -300,8 +301,12 @@ public class scanView extends AppCompatActivity {
             {
                 Toast.makeText(this, "Code matches!", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(scanView.this, orderView.class);
+//                //i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                //i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 i.putExtra("code", code.rawValue);
-                startActivity(i);
+                setResult(Activity.RESULT_OK, i);
+                finish();
             }
             else
             {

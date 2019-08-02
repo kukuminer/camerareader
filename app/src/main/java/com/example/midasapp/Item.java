@@ -5,9 +5,13 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import java.io.File;
 
 
 public class Item
@@ -24,6 +28,8 @@ public class Item
 
     TextView total;
     EditText qtyText;
+    Button remove;
+
 
 
     public TableRow getAsTableRow(Context context) //TODO: ADD BUTTON TO REMOVE ITEM FROM LIST
