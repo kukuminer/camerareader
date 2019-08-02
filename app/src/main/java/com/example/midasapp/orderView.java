@@ -6,13 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +34,7 @@ public class orderView extends AppCompatActivity {
     String[] codeList;
 
     ScrollView scrollView;
-    ConstraintLayout constraintLayout;
+    TableLayout tableLayout;
 
     EditText searchText;
 
@@ -51,7 +50,7 @@ public class orderView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_view);
 
-        constraintLayout = findViewById(R.id.constraintLayout);
+        tableLayout = findViewById(R.id.tableLayout);
 
         searchText = findViewById(R.id.searchText);
 
@@ -144,6 +143,7 @@ public class orderView extends AppCompatActivity {
             if(code.compareToIgnoreCase(items.get(a).code) == 0)
             {
                 addItemToOrder(items.get(a));
+                searchText.setText("");
                 Toast.makeText(this, "Added successfully!", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -153,20 +153,7 @@ public class orderView extends AppCompatActivity {
 
     public void addItemToOrder(Item item)
     {
-        TextView tv = new TextView(getApplicationContext());
-        // Create a LayoutParams for TextView
-        ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT
-        );
-
-        // Apply the layout parameters to TextView widget
-        tv.setLayoutParams(lp);
-
-        // Set text to display in TextView
-        tv.setText("This is a sample TextView...");
-
-        constraintLayout.addView(tv);
+        tableLayout.addView(item.getAsTableRow(this));
 
     }
 }
