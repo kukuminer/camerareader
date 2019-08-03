@@ -13,9 +13,17 @@ public class FileManager {
     private static String TAG = "~~~CHECK HERE:";
 
 
-    public static boolean saveToFile(String data, File file, Context context)
+    public static boolean saveToFile(String data, File file, Context context, boolean overWrite)
     {
-        String write = readFile(file, context) + data + System.getProperty("line.separator");
+        String write;
+        if(overWrite)
+        {
+            write = data + System.getProperty("line.separator");
+        }
+        else
+        {
+            write = readFile(file, context) + data + System.getProperty("line.separator");
+        }
 
         try
         {

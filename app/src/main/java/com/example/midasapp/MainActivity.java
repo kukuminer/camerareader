@@ -1,8 +1,8 @@
 package com.example.midasapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent i = new Intent(MainActivity.this, orderView.class);
             i.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(i);
+        }
+
+        public void loadOrder(View v)
+        {
+            Intent i = new Intent(MainActivity.this, loadOrder.class);
             startActivity(i);
         }
 
